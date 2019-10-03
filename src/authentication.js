@@ -17,14 +17,18 @@ module.exports = app => {
     const { email, password } = req.body; //get email and password login
     if (!email || !password) {
       //check email and password login
-      throw new Error("there are some required feild");
+      res.status(400).send({
+        Error: "there are require felid misssing"
+      });
     }
     try {
       const user = await knex("users").where("email", email); //get user by his email
       const isOwner = await hashPassword.compare(password, user[0].password); //compare hashing password
       if (!isOwner) {
         //check is owner
-        throw new Error("you are not the owner ");
+        res.status(400).send({
+          Error: "check email or password"
+        });
       }
       const token = jwt.sign(
         //create the token to login
@@ -42,7 +46,9 @@ module.exports = app => {
         user: user[0]
       });
     } catch (err) {
-      console.log(err);
+      res.send({
+        err
+      });
     }
   });
 };
