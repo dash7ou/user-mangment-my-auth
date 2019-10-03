@@ -7,10 +7,10 @@ const knex = require("knex");
 
 module.exports = (options = {}) => {
   return async context => {
-    const { params, app, method } = context; //get params and app
+    const { params, app } = context; //get params and app
 
-    if (Object.keys(params).length === 0 && params.constructor === Object) {
-      //check if this is one time or more time
+    if (!context.arguments.length === 1) {
+      //here i mean in update because only  get in update length of argument === 1 but update 3  and get and find 2
       return context;
     }
 

@@ -11,11 +11,9 @@ exports.Users = class Users extends Service {
     return super.delete(id, params);
   }
   async find() {
-    console.log("this is find");
     return super.find();
   }
   async get(params) {
-    console.log("this is get");
     return super.get(params);
   }
 };
