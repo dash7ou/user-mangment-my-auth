@@ -28,7 +28,7 @@ Getting up and running is as easy as 1, 2, 3.
 to run dev environment in trminal write
 
 ```
-npm run start
+npm run dev
 ```
 
 ### Database Diagram
