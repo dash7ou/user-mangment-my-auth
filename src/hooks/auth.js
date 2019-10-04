@@ -7,9 +7,9 @@ const knex = require("knex");
 
 module.exports = (options = {}) => {
   return async context => {
-    const { params, app } = context; //get params and app
+    const { params, app, hook } = context; //get params and app
 
-    if (!context.arguments.length === 1) {
+    if (context.arguments.length === 1) {
       //here i mean in update because only  get in update length of argument === 1 but update 3  and get and find 2
       return context;
     }

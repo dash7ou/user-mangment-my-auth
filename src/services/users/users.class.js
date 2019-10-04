@@ -10,8 +10,8 @@ exports.Users = class Users extends Service {
   delete(id, params) {
     return super.delete(id, params);
   }
-  async find() {
-    return super.find();
+  async find(params) {
+    return super.find(params);
   }
   async get(params) {
     return super.get(params);

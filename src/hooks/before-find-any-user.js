@@ -7,6 +7,11 @@ module.exports = (options = {}) => {
     // const userData = await context.params.user;
     const { params, app } = context;
 
+    if (context.arguments.length === 1) {
+      //here i mean in update because only  get in update length of argument === 1 but update 3  and get and find 2
+      return context;
+    }
+
     const userData = { ...params.user }; //get data user
 
     const { userType, isAccept, block } = userData; //get the al permissions for user to check it
